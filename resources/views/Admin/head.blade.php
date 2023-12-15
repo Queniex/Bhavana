@@ -1,217 +1,188 @@
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    {{-- Remixion --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+    {{-- Chart --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Bhavana</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-        <title>Collapsible sidebar using Bootstrap 3</title>
-        
-        <!-- Bootstrap CSS CDN -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        {{-- Remixion --}}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
-        <!-- Custom CSS -->
-        <style>
-            @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+/* 
+            border: 1px red solid; */
+        }
 
-            /* *{
-                border: 1px solid red;
-            } */
+        .user{
+            margin-left: -25px;
+        }
 
-            body {
-                font-family: 'Poppins', sans-serif;
-                background-image: url('images/system/bhavana-foto2.png'); 
-                background-size: cover;
-                background-repeat: no-repeat; 
-                background-attachment: fixed; 
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-image: url("https://i.postimg.cc/k4ZZV3Mx/bhavana-foto2.png");
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: cover; 
+        }
+
+        .active-link {
+            color: black !important;
+            background: #FFDD63;
+            border-radius: 70px;   
             }
 
-            p {
-                font-family: 'Poppins', sans-serif;
-                font-size: 1.1em;
-                font-weight: 300;
-                line-height: 1.7em;
-                color: #999;
-            }
+        h3 {
+            font-size: 1.2375rem;
+            color: #FFF;
+        }
 
-            a, a:hover, a:focus {
-                color: inherit;
-                text-decoration: none;
-                transition: all 0.3s;
-            }
+        a, router-link {
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
 
-            .navbar {
-                padding: 15px 10px;
-                background: white;
-                width: 20%;
-                border: none;
-                border-radius: 0;
-                margin-bottom: 40px;
-                box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            }
+        li {
+            list-style: none;
+        }
 
-            .toolbar-btn{
-                margin: 0px 1.2rem;
-            }
+        .colx {
+            width: 100px;
+        }
 
-            .navbar-btn {
-                box-shadow: none;
-                outline: none !important;
-                border: none;
-            }
+        .coly {
+            width: 200px;
+        }
 
-            .line {
-                width: 100%;
-                height: 1px;
-                border-bottom: 1px dashed #ddd;
-                margin: 40px 0;
-            }
+        .row-card {
+            width: 320px;
+        }
 
-            /* ---------------------------------------------------
-                SIDEBAR STYLE
-            ----------------------------------------------------- */
-            .wrapper {
-                display: flex;
-                align-items: stretch;
-            }
+        .row-card-wrap {
+            width: 350px;
+        }
 
-            a.router-link-exact-active {
-                color: black;
-                background: #FFDD63;
-                border-radius: 15px;
-            }
+        /* Layout skeleton */
 
-            .c1{
-                color:#e6bd2b;
-            }
+        .wrapper {
+            align-items: stretch;
+            display: flex;
+            width: 100%;
+        }
 
-            #sidebar {
-                min-width: 250px;
-                max-width: 250px;
-                background: white;
-                color: black;
-                transition: all 0.3s;
-            }
+        #sidebar {
+            max-width: 264px;
+            min-width: 264px;
+            padding: 10px 10px;
+            height: 100vh;
+            transition: all 0.35s ease-in-out;
+            box-shadow: 0 0 35px 0 rgba(49, 57, 66, 0.5);
+            z-index: 1111;
+            background: #ffffff;
+        }
 
-            #sidebar.active {
-                margin-left: -250px;
-            }
+        /* Sidebar collapse */
 
-            #sidebar .sidebar-header {
-                text-align: center;
-                background: rgba(255, 252, 252, 0.637);
-                padding-top: 2rem;
-            }
+        #sidebar.collapsed {
+            margin-left: -264px;
+        }
 
-            #sidebar .sidebar-header .header-text {
-                font-weight: 800; 
-            }
+        h6{
+            font-size: 12px;
+        }
 
-            #sidebar ul.components {
-                padding: 10px 0;
-                border-bottom: 1px solid #e6bd2b;
-                margin-left: 10px;
-                margin-right: 10px;
-            }
+        .main {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            transition: all 0.35s ease-in-out;
+        }
 
-            #sidebar ul p {
-                color: black;
-                padding: 10px;
-                font-weight: 400;
-            }
+        .sidebar-logo {
+            padding: 1.15rem 1.5rem;
+            height: 100px;
+            /* background: #F1F1F1; */
+        }
 
-            #sidebar ul li a {
-                padding: 10px;
-                font-size: 1.1em;
-                display: block;
-            }
-            
-            #sidebar ul li a:hover {
-                color: #e6bd2b;
-                background: white;
-            }
+        .sidebar-logo a {
+            color: #e9ecef;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
 
-            /* #sidebar ul li.active > a, a[aria-expanded="true"] {
-                color: black;
-                background: #FFDD63;
-                border-radius: 15px;
-            } */
+        .sidebar-nav {
+            padding: 0;
 
-            a[data-toggle="collapse"] {
-                position: relative;
+        }
+
+        .logout {
+            margin: 5px 4rem;
+            border: 1px solid black;    
+            text-align: center;
+            border-radius: 2rem;
+            background: #E4A11B;
+        }
+
+        .logout:hover {
+            background: white;
+        }
+
+        .sidebar-header {
+            color: #e9ecef;
+            font-size: .75rem;
+            padding: 1.5rem 1.5rem .375rem;
+        }
+
+        router-link.sidebar-link, a.sidebar-link {
+            padding: .625rem 1.625rem;
+            color: #e9ecef;
+            position: relative;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .sidebar-link[data-bs-toggle="collapse"]::after {
+            border: solid;
+            border-width: 0 .075rem .075rem 0;
+            content: "";
+            display: inline-block;
+            padding: 2px;
+            position: absolute;
+            right: 1.5rem;
+            top: 1.4rem;
+            transform: rotate(-135deg);
+            transition: all .2s ease-out;
+        }
+
+        .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+            transform: rotate(45deg);
+            transition: all .2s ease-out;
+        }
+
+        .content {
+            flex: 1;
+            max-width: 100vw;
+            width: 100vw;
+        }
+
+        /* Responsive */
+
+        @media (min-width:768px) {
+            .content {
+                width: auto;
             }
-
-            a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-                content: '\e259';
-                display: block;
-                position: absolute;
-                right: 20px;
-                font-family: 'Glyphicons Halflings';
-                font-size: 0.6em;
-            }
-            a[aria-expanded="true"]::before {
-                content: '\e260';
-            }
-
-            ul ul a {
-                font-size: 0.9em !important;
-                padding-left: 30px !important;
-                background: white;
-                font-weight: 400;
-            }
-
-            ul.CTAs {
-                padding: 20px;
-            }
-
-            ul.CTAs a {
-                text-align: center;
-                font-size: 0.9em !important;
-                display: block;
-                border-radius: 5px;
-                margin-bottom: 5px;
-            }
-
-            a.download {
-                background: #FFDD63;
-                color: black;
-            }
-
-            .download:hover{
-                font-weight: 600;
-                color:black !important;
-            }
-
-            a.article, a.article:hover {
-                background: #FFDD63 !important;
-                color: black !important;
-            }
-
-            /* ---------------------------------------------------
-                CONTENT STYLE
-            ----------------------------------------------------- */
-            #content {
-                padding: 20px;
-                min-height: 100vh;
-                transition: all 0.3s;
-            }
-
-            /* ---------------------------------------------------
-                MEDIAQUERIES
-            ----------------------------------------------------- */
-            @media (max-width: 768px) {
-                #sidebar {
-                    margin-left: -250px;
-                }
-                #sidebar.active {
-                    margin-left: 0;
-                }
-                #sidebarCollapse span {
-                    display: none;
-                }
-            }
-
-
-        </style>
-        
-        <!-- Scrollbar Custom CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">    
-        
+        }
+    </style>

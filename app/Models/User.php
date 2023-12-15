@@ -16,7 +16,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected $table = "users";
+    protected $table = "master_account";
     protected $primaryKey = "ID_Akun";
-    protected $fillable = ['ID_Akun', 'Username', 'Email','Password', 'Nama',  'Alamat', 'No_Telp', 'Peran', 'Foto_Profile', 'Tanggal_Lahir', 'Tanggal'];
+    protected $fillable = ['ID_Akun', 'Username', 'Email','Password', 'Nama', 'Bidang_Usaha', 'Alamat', 'No_Telp', 'Peran', 'Foto_Profile', 'Tanggal_Lahir', 'Status', 'Tanggal'];
 }

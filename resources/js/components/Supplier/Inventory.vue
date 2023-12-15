@@ -1,0 +1,232 @@
+<template>
+    <div class="container">
+        <div class="row justify-content-center mx-5 text-black mt-3">
+            <span class="user fw-bold fs-3 mb-2">Kelola Produk Bhavana</span>
+            <div class="user mb-3">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#produk"><i
+                        class="ri-add-box-fill"></i> Tambah Produk</button>
+                <div class="modal fade" id="produk" tabindex="-1" aria-labelledby="produkLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 text-success p-2" id="produkLabel">Tambah Produk</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row g-2 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="formFile" class="form-label">Pilih Foto Barang</label>
+                                        <input class="form-control border border-black" type="file" id="formFile">
+                                    </div>
+                                    <hr>
+                                    <div class="col-md">
+                                        <label for="inputAddress" class="form-label">Nama Barang</label>
+                                        <input type="text" class="form-control border border-black" id="inputAddress"
+                                            placeholder="Minyak A">
+                                    </div>
+                                    <div class="col-md">
+                                        <label for="inputState" class="form-label">Kategori Barang</label>
+                                        <select id="inputState" class="form-select border border-black">
+                                            <option selected>Pilih...</option>
+                                            <option>Minyak Sawit</option>
+                                            <option>Sayur</option>
+                                            <option>Buah</option>
+                                        </select>
+                                    </div>
+                                    <hr>
+                                    <div class="col-md">
+                                        <label for="inputAddress" class="form-label">Kuantitas Barang</label>
+                                        <input type="text" class="form-control border border-black" id="inputAddress"
+                                            placeholder="1000">
+                                    </div>
+                                    <div class="col-md">
+                                        <label for="inputState" class="form-label">Satuan Barang</label>
+                                        <select id="inputState" class="form-select border border-black">
+                                            <option selected>Pilih...</option>
+                                            <option>Liter</option>
+                                            <option>Buah</option>
+                                            <option>Tons</option>
+                                            <option>kg</option>
+                                        </select>
+                                    </div>
+                                    <hr>
+                                    <div class="row g-2">
+                                        <div class="col-md">
+                                            <label for="inputAddress" class="form-label">Harga Barang</label>
+                                            <input type="text" class="form-control border border-black" id="inputAddress"
+                                                placeholder="12000">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success">Tambah Produk</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table align-middle mt-3 bg-white">
+                    <thead class="bg-warning">
+                        <tr>
+                            <th>Nama Barang</th>
+                            <th>Info Barang</th>
+                            <th>Info Penjualan</th>
+                            <th>Status Barang</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="ms-1">
+                                        <p class="fw-bold mb-1">Minyak Goreng C</p>
+                                        <p class="text-muted mb-0">MG120876</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="text-muted mb-0">Jumlah Stok : 100 L</p>
+                                <p class="fw-normal mb-1">Harga Jual : Rp 10.000 /L</p>
+                            </td>
+                            <td>
+                                <p class="text-muted mb-0">Jumlah Terjual : 20 L</p>
+                                <p class="fw-normal mb-1">Total Pemasukan : Rp 200.000 </p>
+                            </td>
+                            <td>
+                                <span class="badge rounded-pill text-bg-danger">Belum Valid</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Detail
+                                </button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">ID Barang ||
+                                                    <span class="badge text-bg-warning">status</span>
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-md-12">
+                                                    <div class="card mb-1">
+                                                        <div class="card-body border border-black bg-warning rounded-3">
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6 class="mb-0 fw-bold">Jumlah Terjual </h6>
+                                                                </div>
+                                                                <div class="col-sm-7 text-secondary">
+                                                                    20 Liter
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6 class="mb-0 fw-bold mt-2">Jumlah Pemasukan</h6>
+                                                                </div>
+                                                                <div class="col-sm-7 text-secondary">
+                                                                    Rp 200.000
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card mb-3">
+                                                        <div class="card-body border border-black rounded-3">
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6 class="mb-0 fw-bold mt-2">Nama Barang</h6>
+                                                                </div>
+                                                                <div class="col-sm-7 text-secondary">
+                                                                    Minyak Sawit A
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6 class="mb-0 fw-bold mt-2">Kategori Barang</h6>
+                                                                </div>
+                                                                <div class="col-sm-7 text-secondary">
+                                                                    Kelapa Sawit
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6 class="mb-0 fw-bold mt-2">Satuan Barang</h6>
+                                                                </div>
+                                                                <div class="col-sm-7 text-secondary">
+                                                                    Liter
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6 class="mb-0 fw-bold mt-2">Kuantitas Stok</h6>
+                                                                </div>
+                                                                <div class="col-sm-7 text-secondary">
+                                                                    500
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6 class="mb-0 fw-bold mt-2">Harga Jual</h6>
+                                                                </div>
+                                                                <div class="col-sm-7 text-secondary">
+                                                                    Rp 10.000
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                            data-bs-target="#produk">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-danger">
+                                    Hapus
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+// import axios from 'axios';
+
+export default {
+    name: 'User',
+    data() {
+        return {
+            levels: {},
+        }
+    },
+    methods: {
+        loadData() {
+        }
+    },
+    created() {
+        this.loadData();
+    }
+}
+</script>
+
+<style scoped>
+/* * {
+    border: 1px solid red;
+} */
+</style>

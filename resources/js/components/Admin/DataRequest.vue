@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center mx-5">
+        <div class="row justify-content-center mx-5 text-black mt-3">
             Halaman Permintaan
         </div>
     </div>
