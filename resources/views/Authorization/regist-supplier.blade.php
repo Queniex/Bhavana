@@ -30,7 +30,7 @@
                     <div class="flex items-center justify-center">
                         <form method="POST">
                             @csrf
-                            <input type="hidden" id="role" name="Peran" value="Supplier">
+                            <input type="hidden" id="role" name="Peran" value="Penjual">
                             <input type="hidden" id="status" name="Status" value="Pending">
                             <div class="grid gap-6 mb-6 md:grid-cols-2">
                                 <div>

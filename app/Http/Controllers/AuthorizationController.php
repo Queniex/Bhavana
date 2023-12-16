@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class UserController extends Controller
+class AuthorizationController extends Controller
 {
     public function showLogin()
     {
@@ -17,7 +17,7 @@ class UserController extends Controller
     public function registerStore(Request $req)
     {
         // dd($req->all());
-        if($req["Peran"] === 'Buyer') {
+        if($req["Peran"] === 'Pembeli') {
             $data = $req->validate([
                 'Username' => 'required|max:255|unique:master_account,Username',
                 'Email' => 'required|string|unique:master_account,Email',
@@ -26,7 +26,7 @@ class UserController extends Controller
                 'Peran' => 'required',
                 'Status' => 'required'
             ]);
-        } else if($req["Peran"] === 'Supplier')  {
+        } else if($req["Peran"] === 'Penjual')  {
             $data = $req->validate([
                 'Username' => 'required|max:255|unique:master_account,Username',
                 'Email' => 'required|unique:master_account,Email',
@@ -68,9 +68,9 @@ class UserController extends Controller
 
             if($user->Peran === 'Admin'){
                 return redirect('/admin')->with('berhasil', 'Berhasil Masuk!');
-            } else if($user->Peran === 'Buyer'){
+            } else if($user->Peran === 'Pembeli'){
                 return redirect('/buyer')->with('berhasil', 'Berhasil Masuk!');;
-            } else if ($user->Peran === 'Supplier'){
+            } else if ($user->Peran === 'Penjual'){
                 return redirect('/supplier')->with('berhasil', 'Berhasil Masuk!');;
             }
         } else {

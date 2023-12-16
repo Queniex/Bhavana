@@ -31,7 +31,7 @@
                         <form method="POST">
                             @csrf
                             <div class="grid gap-6 mb-6 md:grid-cols-2">
-                                <input type="hidden" id="role" name="Peran" value="Buyer">
+                                <input type="hidden" id="role" name="Peran" value="Pembeli">
                                 <input type="hidden" id="status" name="Status" value="Accept">
                                 <div>
                                     <label for="username" class="block mb-2 text-sm font-medium text-gray-900 ">Username</label>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthorizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [UserController::class, 'showLogin'])->name('login');
-Route::post('/login', [UserController::class, 'loginStore'])->name('loginPost');
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthorizationController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthorizationController::class, 'loginStore'])->name('loginPost');
+Route::get('/logout', [AuthorizationController::class, 'logout'])->name('logout');
 
 Route::prefix('regist')->group(function () {
-    Route::get('/', [UserController::class, 'showRegistration'])->name('regist');
-    Route::get('/supplier', [UserController::class, 'showSupplierRegistration'])->name('regist.supplier');
-    Route::post('/supplier', [UserController::class, 'registerStore'])->name('registerPost');
-    Route::get('/buyer', [UserController::class, 'showBuyerRegistration'])->name('regist.buyer');
-    Route::post('/buyer', [UserController::class, 'registerStore'])->name('registerPost');
+    Route::get('/', [AuthorizationController::class, 'showRegistration'])->name('regist');
+    Route::get('/supplier', [AuthorizationController::class, 'showSupplierRegistration'])->name('regist.supplier');
+    Route::post('/supplier', [AuthorizationController::class, 'registerStore'])->name('registerPost');
+    Route::get('/buyer', [AuthorizationController::class, 'showBuyerRegistration'])->name('regist.buyer');
+    Route::post('/buyer', [AuthorizationController::class, 'registerStore'])->name('registerPost');
 });
 
 $routes_admin = ['/admin', '/Contract', '/Buying', '/Dash', '/Category', '/Product', '/Request', '/User', '/Profile', '/Selling', '/Profile-Change'];

@@ -5,7 +5,15 @@ import VueRouter from 'vue-router'
 
 window.Vue = require('vue').default;
 Vue.use(VueRouter)
+
 Vue.component('landingpage', require('./components/LandingPage.vue').default);
+
+import Form from 'vform'
+window.Form = Form;
+import HasError from 'vform'
+import AlertError from 'vform'
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 
 export const routes = [
     // Admin
