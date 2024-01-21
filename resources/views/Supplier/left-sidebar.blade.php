@@ -24,10 +24,10 @@
                 </a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <router-link to="/Contract-Sup" class="sidebar-link text-black" active-class="active-link"><i class="ri-mail-fill"></i> Kontrak</router-link>
+                        <router-link to="/Selling-Sup" class="sidebar-link text-black" active-class="active-link"><i class="ri-shopping-cart-line"></i> Penjualan</router-link>
                     </li>
                     <li class="sidebar-item">
-                        <router-link to="/Selling-Sup" class="sidebar-link text-black" active-class="active-link"><i class="ri-shopping-cart-line"></i> Penjualan</router-link>
+                        <router-link to="/Contract-Sup" class="sidebar-link text-black" active-class="active-link"><i class="ri-mail-fill"></i> Kontrak</router-link>
                     </li>
                 </ul>
             </li>

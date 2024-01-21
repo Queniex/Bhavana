@@ -40,27 +40,24 @@
                                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="mb-6">
-                                <div class="">
-                                    <label for="bidangusaha" class="block mb-2 text-sm font-medium text-gray-900">Bidang Usaha</label>
-                                    <div class="relative inline-block text-left">
-                                        <select id="bidangusaha" class="text-dark border border-black hover:bg-white bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm pr-9 py-3 inline-flex @error('Bidang_Usaha') is-invalid @enderror" name="Bidang_Usaha" value="{{ old('Bidang_Usaha') }}">
-                                            <option selected disabled>Pilih</option>
-                                            <option value="kelapa_sawit">Kelapa Sawit</option>
-                                            <option value="sayuran">Sayuran</option>
-                                            <option value="buah">Buah</option>
-                                            <option value="lainnya">Lainnya</option>
-                                        </select>
-                                        @error('Bidang_Usaha')
-                                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
-                                        @enderror
-                                        {{-- <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                                        </svg> --}}
-                                    </div>
+
+                                <div>
+                                    <label for="nomor_perusahaan" class="block mb-2 text-sm font-medium text-gray-900 ">Nomor Induk Berusaha (NIB)</label>
+                                    <input type="text" id="nomor_perusahaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('NIB') is-invalid @enderror" placeholder="125402" name="NIB" value="{{ old('NIB') }}">
+                                    @error('NIB')
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
+
+                            <div class="mb-6">
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email address</label>
+                                <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('Email') is-invalid @enderror" placeholder="Bidaraksa@company.com" name="Email" value="{{ old('Email') }}">
+                                @error('Email')
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
+                                @enderror
+                            </div> 
+                            
                             <div class="mb-6">
                                 <label for="telephone" class="block mb-2 text-sm font-medium text-gray-900">Nomor Telephone</label>
                                 <input type="text" id="telephone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('No_Telp') is-invalid @enderror" placeholder="+628xxxx" name="No_Telp" value="{{ old('No_Telp') }}">
@@ -77,16 +74,6 @@
                                     @enderror
                                 </div>
                             </div>
-                            {{-- <div class="grid gap-3 mb-6 md:grid-cols-2">    
-                                <div>
-                                    <label for="website" class="block mb-2 text-sm font-medium text-gray-900 ">Jalan/Unit</label>
-                                    <input type="url" id="website" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Jalan Megarsari no.12">
-                                </div>
-                                <div >
-                                    <label for="website" class="block mb-2 text-sm font-medium text-gray-900 ">Kode Pos</label>
-                                    <input type="url" id="website" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="13567">
-                                </div>
-                            </div> --}}
                     </div>
                     <div class="h-full w-3 bg-yellow-300"></div>
                     <div class="flex flex-col">
@@ -99,13 +86,6 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="mb-6">
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email address</label>
-                                <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('Email') is-invalid @enderror" placeholder="Bidaraksa@company.com" name="Email" value="{{ old('Email') }}">
-                                @error('Email')
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
-                                @enderror
-                            </div> 
                             <div class="mb-6">
                                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                                 <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('Password') is-invalid @enderror" placeholder="•••••••••" name="Password" value="{{ old('Password') }}">

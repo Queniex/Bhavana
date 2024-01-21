@@ -19,7 +19,8 @@
                                 <div class="coly">
                                     <div class="d-flex flex-column">
                                         <div class="p-2">Jumlah Produk</div>
-                                        <div class="p-2 fw-bold badge bg-warning text-black">100 Produk</div>
+                                        <div class="p-2 fw-bold badge bg-warning text-black">{{ totalProduct.total_products
+                                        }} Produk</div>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +33,8 @@
                                 <div class="coly">
                                     <div class="d-flex flex-column">
                                         <div class="p-2">Jumlah Pengguna</div>
-                                        <div class="p-2 fw-bold badge bg-warning text-black">100 Pengguna</div>
+                                        <div class="p-2 fw-bold badge bg-warning text-black">{{ totalUser.total_users }}
+                                            Pengguna</div>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +49,8 @@
                                 <div class="coly">
                                     <div class="d-flex flex-column">
                                         <div class="p-2">Jumlah Pembelian</div>
-                                        <div class="p-2 fw-bold badge bg-warning text-black">100 Pembelian</div>
+                                        <div class="p-2 fw-bold badge bg-warning text-black">{{ requestSup }} Pembelian
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +63,8 @@
                                 <div class="coly">
                                     <div class="d-flex flex-column">
                                         <div class="p-2">Jumlah Penjualan</div>
-                                        <div class="p-2 fw-bold badge bg-warning text-black">100 Penjualan</div>
+                                        <div class="p-2 fw-bold badge bg-warning text-black">{{ requestBuy }} Penjualan
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -69,21 +73,27 @@
                 </div>
             </div>
 
-            <div class="user mt-3">
+            <!-- <div class="user mt-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi magni aut possimus laborum nobis quasi
                 molestias cumque asperiores placeat iure.
             </div>
 
             <div class="bg-light mt-2 border border-black rounded-4">
                 <canvas ref="myChart" style="width: 100px; height: 20px;"></canvas>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
+import axios from 'axios';
+const csrfToken = document.head.querySelector('meta[name="csrf-token"]');
 
+if (csrfToken) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken.content;
+}
+
+import Chart from 'chart.js/auto';
 const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
 
 export default {
@@ -92,12 +102,42 @@ export default {
         return {
             levels: {},
             myChart: null,
+            totalProduct: null,
+            totalUser: null,
+            requestSup: null,
+            requestBuy: null,
         }
     },
     methods: {
         loadData() {
-            // Anda dapat memuat data jika dibutuhkan
-        }
+            axios.get('api/totalUser')
+                .then(({ data }) => {
+                    this.totalUser = data;
+                    // console.log(this.modalData);
+                })
+                .catch(error => {
+                    console.error('Gagal memuat data:', error);
+                });
+
+            axios.get('/totalProduct')
+                .then(({ data }) => {
+                    this.totalProduct = data;
+                    // console.log(this.modalData);
+                })
+                .catch(error => {
+                    console.error('Gagal memuat data:', error);
+                });
+
+            axios.get('/totalRequest')
+                .then(({ data }) => {
+                    this.requestBuy = data.total_requests_buy;
+                    this.requestSup = data.total_requests_sup;
+                    // console.log(this.modalData);
+                })
+                .catch(error => {
+                    console.error('Gagal memuat data:', error);
+                });
+        },
     },
     mounted() {
         // Data untuk chart
@@ -147,6 +187,9 @@ export default {
             data: data,
             options: options
         });
+    },
+    created() {
+        this.loadData();
     }
 }
 </script>

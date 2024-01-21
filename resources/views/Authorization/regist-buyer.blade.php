@@ -30,7 +30,7 @@
                     <div class="flex items-center justify-center">
                         <form method="POST">
                             @csrf
-                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                            <div class="grid gap-6 mb-3 md:grid-cols-2">
                                 <input type="hidden" id="role" name="Peran" value="Pembeli">
                                 <input type="hidden" id="status" name="Status" value="Accept">
                                 <div>
@@ -49,26 +49,50 @@
                                 </div>
                             </div>
 
-                            <div class="mb-6">
-                                <label for="no_telp" class="block mb-2 text-sm font-medium text-gray-900">Nomor Telephone</label>
+                            <div class="grid gap-6 mb-3 md:grid-cols-2">
+                                <div>
+                                    <label for="no_telp" class="block mb-2 text-sm font-medium text-gray-900">Nomor Telephone</label>
                                 <input type="text" id="no_telp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('No_Telp') is-invalid @enderror" placeholder="+62xxxx" name="No_Telp" value="{{ old('No_Telp') }}">
                                 @error('No_Telp')
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
                                 @enderror
+                                </div>
+
+                                <div class="relative">
+                                    <label for="Tanggal_Lahir" class="block mb-2 text-sm font-medium text-gray-900">Tanggal Lahir</label>
+                                    <input name="Tanggal_Lahir" type="date" id="Tanggal_Lahir"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 @error('Tanggal_Lahir') is-invalid @enderror"
+                                        placeholder="Select date start" value="{{ old('Tanggal_Lahir') }}">
+                                        @error('Tanggal_Lahir')
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
+                                @enderror
+                                </div>
                             </div> 
 
-                            <div class="mb-6">
-                                <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                            <div class="mb-3">    
+                                <div class="grid row-span-2">
+                                    <label for="website" class="block mb-2 text-sm font-medium text-gray-900 ">Alamat</label>
+                                    <textarea id="website" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('Alamat') is-invalid @enderror" placeholder="Masukkan alamat lengkap seperti kota, kabupaten, kecamatan, nama jalan, dan kode pos" name="Alamat" value="{{ old('Alamat') }}"></textarea>
+                                    @error('Alamat')
+                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                                <div>
+                                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                                 <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('Password') is-invalid @enderror" placeholder="•••••••••" name="Password" value="{{ old('Password') }}">
                                 @error('Password')
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500"> {{ $message }}</p>
                                 @enderror
-                            </div> 
+                                </div>
 
-                            <div class="mb-6">
-                                <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900">Confirm password</label>
+                                <div>
+                                    <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900">Confirm password</label>
                                 <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="•••••••••" name="Confirm_Password" required>
-                            </div>  
+                                </div>
+                            </div> 
 
                             {{-- <a href="/buyer" type="submit" class="text-white bg-yellow-500 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</a> --}}
                             <div class="flex justify-end">

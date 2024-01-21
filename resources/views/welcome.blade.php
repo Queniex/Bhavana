@@ -240,10 +240,8 @@
       <div class="flex flex-col lg:flex-row lg:-mx-8">
         <div class="w-full lg:w-1/2 lg:px-8">
           <h2 class="text-3xl leading-tight font-bold mt-4">Selamat datang di Bhavana!</h2>
-          <p class="text-lg mt-2 font-semibold">Tempatnya belanja bahan pangan terpercaya secara online</p>
-          <p class="mt-2 leading-relaxed">Donec convallis sollicitudin facilisis. Integer nisl ligula, accumsan non
-            tincidunt ac, imperdiet in enim.
-            Donec efficitur ullamcorper metus, eu venenatis nunc. Nam eget neque tempus, mollis sem a, faucibus mi.</p>
+          <p class="text-lg mt-2 font-semibold">Platform online yang menghadirkan berbagai komoditas pangan berkualitas tinggi. </p>
+          <p class="mt-2 leading-relaxed text-justify">Temukan keberagaman dan kualitas dalam setiap produk kami. Dengan pilihan yang luas dan layanan yang handal, kami hadir untuk memenuhi kebutuhan bahan pangan Anda. Temukan keberagaman dan kualitas dalam setiap produk kami. Dengan pilihan yang luas dan layanan yang handal, kami hadir untuk memenuhi kebutuhan bahan pangan Anda.</p>
         </div>
 
         <div class="w-full lg:w-1/2 lg:px-8 mt-12 lg:mt-0">
@@ -253,7 +251,7 @@
             </div>
             <div class="md:ml-8 mt-4 md:mt-0">
               <h4 class="text-xl font-bold leading-tight">Pertemuan antara kualitas dan kenyamanan.</h4>
-              <p class="mt-2 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum corporis exercitationem cupiditate vel excepturi veritatis.</p>
+              <p class="mt-2 leading-relaxed text-justify">Kami membangun jembatan antara kualitas terbaik dengan pengalaman berbelanja yang nyaman. Setiap produk yang kami tawarkan merupakan hasil dari standar kualitas tinggi.</p>
             </div>
           </div>
 
@@ -263,40 +261,46 @@
             </div>
             <div class="md:ml-8 mt-4 md:mt-0">
               <h4 class="text-xl font-bold leading-tight">Menghadirkan pengalaman berbelanja langsung dari sumbernya</h4>
-              <p class="mt-2 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, vel rerum? Asperiores reiciendis placeat assumenda!</p>
+              <p class="mt-2 leading-relaxed text-justify"> Bhavana berkomitmen untuk memberikan akses langsung ke komoditas bahan pangan berkualitas, menjadikan setiap transaksi lebih transparan dan otentik.</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="md:flex md:flex-wrap mt-14 justify-center text-center md:-mx-4">
-        <div class="md:w-1/2 md:px-4 lg:w-1/4">
+        <div class="md:w-1/2 md:px-4 lg:w-2/6">
           <div class="bg-white rounded-lg border border-black p-8">
             {{-- <img src="images/teeth-whitening.svg" alt="" class="h-20 mx-auto"> --}}
 
             <h4 class="text-xl font-bold mt-4">Supplier</h4>
-            <p class="mt-1">Let us show you how our experience.</p>
-            <a href="#" class="block mt-4">Read More</a>
+            <p class="mt-1">Menawarkan Kebutuhan</p>
+            <p class="mt-1">Melakukan Penawaran</p>
+            <p class="mt-1">Menyesuaikan Stok</p>
+            <a href="/login" class="block mt-4 text-blue-600 hover:text-yellow-600">Bergabung</a>
           </div>
         </div>
 
-        <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-1/4">
+        <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-2/6">
             <div class="bg-white rounded-lg border border-black p-8">
               {{-- <img src="images/painless-dentistry.svg" alt="" class="h-20 mx-auto"> --}}
   
-              <h4 class="text-xl font-bold mt-4">Bhavana</h4>
-              <p class="mt-1">Let us show you how our experience.</p>
-              <a href="#" class="block mt-4">Read More</a>
+              <h4 class="text-xl font-bold mt-4">Admin</h4>
+              <p class="mt-1">Mengelola Platform</p>
+              <p class="mt-1">Menyediakan Dukungan</p>
+              <p class="mt-1">Layanan Pelanggaran</p>
+              <a class="block mt-4">Siap Membantumu!</a>
             </div>
           </div>
 
-        <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-1/4">
+        <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-2/6">
           <div class="bg-white rounded-lg border border-black p-8">
             {{-- <img src="images/painless-dentistry.svg" alt="" class="h-20 mx-auto"> --}}
 
             <h4 class="text-xl font-bold mt-4">Pembeli</h4>
-            <p class="mt-1">Let us show you how our experience.</p>
-            <a href="#" class="block mt-4">Read More</a>
+            <p class="mt-1">Menemukan Kebutuhan</p>
+            <p class="mt-1">Melakukan Pembelian</p>
+            <p class="mt-1">Transparansi dan Terpercaya</p>
+            <a href="/login" class="block mt-4 text-blue-600 hover:text-yellow-600">Bergabung</a>
           </div>
         </div>
 
@@ -318,24 +322,22 @@
       <div class="flex flex-col lg:flex-row lg:-mx-8">
         <div class="w-full lg:w-1/2 lg:px-8">
           <h2 class="text-3xl leading-tight font-bold mt-4">Kenapa harus <span class="text-[#F3D464]">Bha<span class="text-black">vana</span></span>?</h2>
-          <p class="mt-2 leading-relaxed">Aenean ut tellus tellus. Suspendisse potenti. Nullam tincidunt lacus tellus,
-            sed aliquam est vehicula a. Pellentesque consectetur condimentum nulla, eleifend condimentum purus vehicula
-            in. Donec convallis sollicitudin facilisis. Integer nisl ligula, accumsan non tincidunt ac, imperdiet in
-            enim. Donec efficitur ullamcorper metus, eu venenatis nunc. Nam eget neque tempus, mollis sem a, faucibus
-            mi.</p>
+          <p class="mt-5 mb-5 text-justify">Bhavana menyediakan tempat untuk melakukan jual beli yang terpercaya dan aman. selain itu bhavana juga menampilkan berbagai informasi-informasi penting tentang bahan pangan yang terupdate</p>
+          <p class="mt-2 leading-relaxed text-justify">Setiap produk bahan pangan kami berkualitas tinggi. Kami membawa keaslian langsung dari sumbernya ke tangan Anda. Tanpa perantara, setiap produk diperoleh langsung dari produsen, memberikan jaminan keaslian dan transparansi yang tinggi.</p>
         </div>
 
         <div class="w-full md:max-w-md md:mx-auto lg:w-1/2 lg:px-8 mt-12 mt:md-0">
-          <div class="bg-gray-400 w-full h-72 rounded-lg"></div>
-
-          <p class="italic text-sm mt-2 text-center">Aenean ante nisi, gravida non mattis semper.</p>
+          <div class="bg-gray-400 w-full h-72 rounded-lg">
+            <img src="./images/system/test-oil.jpg" alt="Your Image" class="w-full h-full object-cover rounded-lg" />
+          </div>
+          <p class="italic text-sm mt-2 text-center">Tersedia Berbagai Jenis Minyak</p>
         </div>
       </div>
     </section>
     <!-- end testimonials -->
 
     <!-- start blog -->
-    <section class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
+    {{-- <section class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-32">
       <div class="">
         <h2 class="text-3xl leading-tight font-bold">Testimoni</h2>
         <p class="text-gray-600 md:max-w-lg">Apa yang mereka katakan tentang kami?</p>
@@ -387,7 +389,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- end blog -->
 
     <!-- start cta -->

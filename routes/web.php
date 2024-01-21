@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorizationController;
+use App\Http\Controllers\API\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +47,25 @@ foreach ($routes_supplier as $route) {
     })->middleware('loggedIn');
 }
 
-$routes_buyer = ['/buyer', '/Dash-Buy', '/Profile-Buy', '/Catalogue', '/Contract-Buy', '/Catalogue-Detail', 'Transaction-Information', '/Transaction-Order'];
+$routes_buyer = ['/buyer', '/Dash-Buy', '/Detail-Contract', '/Profile-Buy', '/Catalogue-Detail', '/Catalogue', '/Contract-Buy', 'Transaction-Information', '/Transaction-Order'];
     
 foreach ($routes_buyer as $route) {
     Route::get($route, function () {
         return view('Buyer/home');
     })->middleware('loggedIn');
 }
+
+Route::get('/ProfileDetail', [AuthorizationController::class, 'showProfile']);
+Route::get('/ProductDetail', [AuthorizationController::class, 'showProduct']);
+Route::post('/ProductStore', [AuthorizationController::class, 'storeProduct']);
+Route::put('/UpdateStore', [AuthorizationController::class, 'updateProduct']);
+Route::get('/totalProduct', [AuthorizationController::class, 'totalProduct']);
+Route::get('/totalRequest', [AuthorizationController::class, 'totalRequest']);
+Route::post('/addRequest', [AuthorizationController::class, 'addRequest']);
+Route::get('/buyerRequest', [AuthorizationController::class, 'buyerRequest']);
+Route::get('/contractRequest', [AuthorizationController::class, 'contractRequest']);
+Route::get('/Contract-Buy/{idReq}', [AuthorizationController::class, 'generateContractBuy']);
+Route::get('/Contract-Sup/{idReq}', [AuthorizationController::class, 'generateContractSup']);
+// Route::get('/Catalogue-Detail/{id}', [ProductController::class, 'index']);
+
 

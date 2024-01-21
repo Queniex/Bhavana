@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
     {{-- Chart --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Bhavana</title>
@@ -82,14 +81,14 @@
         }
 
         #sidebar {
-            max-width: 264px;
-            min-width: 264px;
-            padding: 10px 10px;
-            height: 100vh;
+            flex: 0 0 264px; /* Lebar tetap */
+            padding: 10px;
             transition: all 0.35s ease-in-out;
             box-shadow: 0 0 35px 0 rgba(49, 57, 66, 0.5);
             z-index: 1111;
             background: #ffffff;
+            height: 100vh;
+            overflow-y: auto; 
         }
 
         /* Sidebar collapse */

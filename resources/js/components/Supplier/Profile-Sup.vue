@@ -11,13 +11,12 @@
                     <div class="card border border-black">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="Admin" class="rounded-circle"
-                                    width="150">
+                                <img class="rounded-circle" width="150" src="images/system/profile-sup.gif" alt="">
                                 <div class="mt-3">
-                                    <h4>PT.Redaksa</h4>
-                                    <p class="text-muted font-size-sm">Kelapa Sawit</p>
-                                    <p class="text-secondary mb-1">Bay Area, San Francisco, CA Lorem ipsum dolor sit
-                                        amet.</p>
+                                    <h4>{{ userData.Username }}</h4>
+                                    <p class="text-muted font-size-sm">{{ userData.NIB }}</p>
+                                    <p class="text-secondary mb-1">{{ userData.Alamat }} Lorem ipsum dolor sit amet
+                                        consectetur adipisicing elit. Alias, dicta!</p>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +30,7 @@
                                     <h6 class="mb-0">Username</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Kenneth Valdez
+                                    {{ userData.Username }}
                                 </div>
                             </div>
                             <hr>
@@ -40,11 +39,11 @@
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    fip@jukmuh.al
+                                    {{ userData.Email }}
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Tanggal Lahir</h6>
                                 </div>
@@ -52,13 +51,13 @@
                                     27-09-2002
                                 </div>
                             </div>
-                            <hr>
+                            <hr> -->
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Phone</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    (239) 816-9029
+                                    (239) {{ userData.No_Telp }}
                                 </div>
                             </div>
                             <hr>
@@ -67,7 +66,7 @@
                                     <h6 class="mb-0">Role</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Supplier
+                                    {{ userData.Peran }}
                                 </div>
                             </div>
                             <hr>
@@ -76,7 +75,7 @@
                                     <h6 class="mb-0">Alamat</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Bay Area, San Francisco, CA
+                                    {{ userData.Alamat }}
                                 </div>
                             </div>
                             <hr>
@@ -94,21 +93,38 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
+const csrfToken = document.head.querySelector('meta[name="csrf-token"]');
+
+if (csrfToken) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken.content;
+}
 
 export default {
     name: 'Profile',
     data() {
         return {
             levels: {},
+            userData: {},
         }
     },
     methods: {
         loadData() {
-        }
+        },
+        userDetail() {
+            axios
+                .get('/ProfileDetail')
+                .then(({ data }) => {
+                    this.userData = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching user detail:', error);
+                });
+        },
     },
     created() {
-        this.loadData();
+        // this.loadData();
+        this.userDetail();
     }
 }
 </script>

@@ -18,5 +18,5 @@ class User extends Authenticatable
 
     protected $table = "master_account";
     protected $primaryKey = "ID_Akun";
-    protected $fillable = ['ID_Akun', 'Username', 'Email','Password', 'Nama', 'Bidang_Usaha', 'Alamat', 'No_Telp', 'Peran', 'Foto_Profile', 'Tanggal_Lahir', 'Status', 'Tanggal'];
+    protected $fillable = ['ID_Akun', 'Username', 'Email','Password', 'Nama', 'NIB', 'Alamat', 'No_Telp', 'Peran', 'Foto_Profile', 'Tanggal_Lahir', 'Status', 'Tanggal'];
 }

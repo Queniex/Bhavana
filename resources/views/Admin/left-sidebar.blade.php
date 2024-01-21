@@ -23,14 +23,14 @@
                     <i class="ri-bar-chart-grouped-line"></i> Kelola Transaksi</a>
                 </a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    {{-- <li class="sidebar-item">
+                        <router-link to="/Contract" class="sidebar-link text-black" active-class="active-link"><i class="ri-mail-fill"></i> Kontrak Buyer</router-link>
+                    </li> --}}
                     <li class="sidebar-item">
-                        <router-link to="/Contract" class="sidebar-link text-black" active-class="active-link"><i class="ri-mail-fill"></i> Kontrak</router-link>
+                        <router-link to="/Selling" class="sidebar-link text-black" active-class="active-link"><i class="ri-shopping-cart-line"></i> Kontrak Penjualan</router-link>
                     </li>
                     <li class="sidebar-item">
-                        <router-link to="/Selling" class="sidebar-link text-black" active-class="active-link"><i class="ri-shopping-cart-line"></i> Penjualan</router-link>
-                    </li>
-                    <li class="sidebar-item">
-                        <router-link to="/Buying" class="sidebar-link text-black" active-class="active-link"><i class="ri-shopping-cart-fill"></i> Pembelian</router-link>
+                        <router-link to="/Buying" class="sidebar-link text-black" active-class="active-link"><i class="ri-shopping-cart-fill"></i> Kontrak Pembelian</router-link>
                     </li>
                 </ul>
             </li>
